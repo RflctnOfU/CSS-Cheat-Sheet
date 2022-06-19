@@ -1,0 +1,122 @@
+:root {
+    --bg-color: rgb(67, 67, 67);
+    --card-color1: rgb(106 18 106);
+    --text-color: #ab53ab;
+}
+
+body {
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+    'header header header'
+    'main main main'
+    'footer footer footer'
+    ;
+    grid-template-rows: 150px 1fr 75px;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+    align-self: center;
+}
+
+.main {
+    grid-area: main;
+    margin: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+    align-self: center;
+}
+
+section {
+    display: grid;
+    width: 100%;
+    margin: 10px;
+    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 800;
+}
+
+div > p, code {
+    color: white;
+}
+
+div > p {
+    font-size: small;
+    margin: auto 45px;
+}
+
+h1, h4, .header-box, .description-box {
+    color: var(--text-color);
+    margin: 10px;
+}
+
+h2 {
+    margin: 6px;
+    font-size: 1.6em;
+}
+
+.card-box {
+    border: dashed 1px white;
+    position: relative;
+    display: flexbox;
+    flex-direction: column;
+}
+
+.header-box {
+    border: solid 1px white;
+    width: 90%;
+    border-radius: 10px;
+    position: relative;
+    top: -20px;
+    background-color: var(--bg-color);
+    left: 8px;
+}
+
+.description-box {
+    position: relative;
+    margin: 10px;
+}
+
+pre {
+    background: linear-gradient(41deg, var(--text-color), var(--card-color1));
+    border-radius: 8px;
+    margin: 0 14px 10px 14px;
+    position: relative;
+}
+
+code {
+    user-select: all;
+}
+
+.card-box, .header-box {
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.card-box:hover,
+.card-box:hover .header-box {
+    box-shadow: 0px 0px 8px rgba(232, 102, 236, 1), 0 0 15px rgba(232, 102, 236, 1);
+}
+
+@media (max-width: 992px) {
+    section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        grid-template-columns: auto;
+    }
+}
